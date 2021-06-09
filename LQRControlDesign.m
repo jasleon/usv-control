@@ -9,8 +9,7 @@
 % Sanchez, A. (2017). Advanced Control of an Unmanned Surface Vehicle.
 close all; clear variables; clc;
 
-load('Halcyon.mat');    % Load first set of parameters.
-load('HalcyonABC.mat'); % Load second set of paramenters.
+load('Model.mat');    % Load model parameters.
 
 %% 1. Determine state-space model matrices (6DOF).
 % p175 (Fossen, 2011).
@@ -66,3 +65,5 @@ R = eye(2,2);
 K = Kki(:,1:6);                             % Optimal controller.
 ki = -Kki(:,7:end);                         % Integral gains.
 kr = ku + K*kx;                             % Feedforward controller.
+
+disp('done!');
